@@ -69,13 +69,13 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
                 
                 auto local_map_points = SLAM.print();
 
-                int y;
+                /* int y;
                 if(!local_map_points.empty()){
                     for (y =0;  y < local_map_points.size();  y++){
                         Eigen::Matrix<double, 3, 1> c = local_map_points[y]->get_pos_in_world();
                         std::cout << c << std::endl;
                     }
-                }
+                } */
             }
 
             const auto tp_2 = std::chrono::steady_clock::now();
