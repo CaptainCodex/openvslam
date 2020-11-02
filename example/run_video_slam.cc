@@ -88,6 +88,8 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
             timestamp += 1.0 / cfg->camera_->fps_;
             ++num_frame;
 
+            std::cout << "hey :)" << std::endl;
+
             auto local_map_points = SLAM.print();
 
             int y;
