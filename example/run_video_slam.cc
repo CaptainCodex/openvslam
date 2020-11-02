@@ -92,12 +92,9 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
 
             auto local_map_points = SLAM.print();
 
-            int y;
             if(!local_map_points.empty()){
-                for (y =0;  y < local_map_points.size();  y++){
-                    Eigen::Matrix<double, 3, 1> c = local_map_points[y]->get_pos_in_world();
-                    std::cout << c << std::endl;
-                }
+                Eigen::Matrix<double, 3, 1> c = local_map_points[0]->get_pos_in_world();
+                std::cout << c << std::endl;
             }
 
             // check if the termination of SLAM system is requested or not
