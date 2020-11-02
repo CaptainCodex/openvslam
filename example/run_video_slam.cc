@@ -68,6 +68,15 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
             if (!frame.empty() && (num_frame % frame_skip == 0)) {
                 // input the current frame and estimate the camera pose
                 SLAM.feed_monocular_frame(frame, timestamp, mask);
+
+                std::cout << "hey :)" << std::endl;
+
+                auto local_map_points = SLAM.print();
+
+                if(!local_map_points.empty()){
+                    Eigen::Matrix<double, 3, 1> c = local_map_points[0]->get_pos_in_world();
+                    std::cout << c << std::endl;
+                }
             }
 
             const auto tp_2 = std::chrono::steady_clock::now();
@@ -87,15 +96,6 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
 
             timestamp += 1.0 / cfg->camera_->fps_;
             ++num_frame;
-
-            std::cout << "hey :)" << std::endl;
-
-            auto local_map_points = SLAM.print();
-
-            if(!local_map_points.empty()){
-                Eigen::Matrix<double, 3, 1> c = local_map_points[0]->get_pos_in_world();
-                std::cout << c << std::endl;
-            }
 
             // check if the termination of SLAM system is requested or not
             if (SLAM.terminate_is_requested()) {
