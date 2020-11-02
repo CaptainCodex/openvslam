@@ -29,7 +29,7 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
                    const std::string& vocab_file_path, const std::string& video_file_path, const std::string& mask_img_path,
                    const unsigned int frame_skip, const bool no_sleep, const bool auto_term,
                    const bool eval_log, const std::string& map_db_path) {
-    std::cout << "hey :)" << std::endl;
+    // std::cout << "hey :)" << std::endl;
     
     // load the mask image
     const cv::Mat mask = mask_img_path.empty() ? cv::Mat{} : cv::imread(mask_img_path, cv::IMREAD_GRAYSCALE);
@@ -66,6 +66,9 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
             if (!frame.empty() && (num_frame % frame_skip == 0)) {
                 // input the current frame and estimate the camera pose
                 SLAM.feed_monocular_frame(frame, timestamp, mask);
+                auto local_map_point = SLAM.print();
+
+                
             }
 
             const auto tp_2 = std::chrono::steady_clock::now();
