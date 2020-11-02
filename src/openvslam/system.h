@@ -26,6 +26,7 @@ namespace data {
 class camera_database;
 class map_database;
 class bow_database;
+class landmark;
 } // namespace data
 
 namespace publish {
