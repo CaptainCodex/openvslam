@@ -348,8 +348,10 @@ void system::resume_other_threads() const {
 
 std::vector<openvslam::data::landmark*> system::print(){
     std::vector<openvslam::data::landmark*> llms = map_db_->get_local_landmarks();
+
+    return llms;
     
-    if (!llms.empty()){
+    /* if (!llms.empty()){
         //auto c = llms[0];
         //return a;
         Eigen::Matrix<double, 3, 1> c = llms[0]->get_pos_in_world();
@@ -357,7 +359,7 @@ std::vector<openvslam::data::landmark*> system::print(){
         std::cout << &c << std::endl;
         
         return c;
-    }
+    } */
 }
 
 } // namespace openvslam
