@@ -29,6 +29,8 @@ void mono_tracking(const std::shared_ptr<openvslam::config>& cfg,
                    const std::string& vocab_file_path, const std::string& video_file_path, const std::string& mask_img_path,
                    const unsigned int frame_skip, const bool no_sleep, const bool auto_term,
                    const bool eval_log, const std::string& map_db_path) {
+    std::cout << "hey :)" << std::endl;
+    
     // load the mask image
     const cv::Mat mask = mask_img_path.empty() ? cv::Mat{} : cv::imread(mask_img_path, cv::IMREAD_GRAYSCALE);
 
