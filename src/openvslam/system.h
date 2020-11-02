@@ -50,6 +50,8 @@ public:
     //! Shutdown the SLAM system
     void shutdown();
 
+    std::vector<openvslam::data::landmark*> print();
+
     //-----------------------------------------
     // data I/O
 
