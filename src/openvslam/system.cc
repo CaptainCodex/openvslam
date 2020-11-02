@@ -11,6 +11,7 @@
 #include "openvslam/io/map_database_io.h"
 #include "openvslam/publish/map_publisher.h"
 #include "openvslam/publish/frame_publisher.h"
+#include "openvslam/data/landmark.h"
 
 #include <thread>
 
